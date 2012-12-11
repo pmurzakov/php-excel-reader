@@ -841,7 +841,7 @@ class Spreadsheet_Excel_Reader {
 
 		// Custom pattern can be POSITIVE;NEGATIVE;ZERO
 		// The "text" option as 4th parameter is not handled
-		$parts = split(";",$format);
+		$parts = explode(";",$format);
 		$pattern = $parts[0];
 		// Negative pattern
 		if (count($parts)>2 && $num==0) {
@@ -913,7 +913,7 @@ class Spreadsheet_Excel_Reader {
 	 * Some basic initialisation
 	 */
 	function Spreadsheet_Excel_Reader($file='',$store_extended_info=true,$outputEncoding='') {
-		$this->_ole =& new OLERead();
+		$this->_ole = new OLERead();
 		$this->setUTFEncoder('iconv');
 		if ($outputEncoding != '') { 
 			$this->setOutputEncoding($outputEncoding);
